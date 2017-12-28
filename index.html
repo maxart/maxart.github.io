@@ -1,23 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title></title>
+  <title>seepango-auth</title>
   <meta name="viewport" content="width=device-width">
-
-  <script type="text/javascript">
-    if (window.location.hash.indexOf('access_token') != -1) {
-      var accessToken = window.location.hash.replace("#access_token=", "");
-      accessToken = accessToken.substr(0, accessToken.indexOf('&scope'));
-      console.log(accessToken);
-      window.opener.setAuthToken(accessToken);
-      window.close();
-    }
-    else {
-    }
-  </script>
+  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="favicon-32.png" sizes="32x32">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
 </head>
 <body>
+
+  <div class="panel-wrapper default">
+    <h2>HeyGuys</h2>
+    <h3>Let's get you your oauth code for us with Seepango</h3>
+
+    <a class="btn" href="https://api.twitch.tv/kraken/oauth2/authorize?response_type=token&client_id=okz7u1yk418u3zml3guesjlrsa6dem4&redirect_uri=http://gettc.xyz/password/&scope=scope=user_read+channel_check_subscription+channel_commercial+channel_editor+channel_feed_edit+channel_feed_read+channel_subscriptions+chat_login+user_follows_edit+user_subscriptions+viewing_activity_read">Let's go</a>
+  </div>
+
+  <div class="panel-wrapper authenticated">
+    <h2>PogChamp</h2>
+    <h3>Here's your code:</h3>
+
+    <code class="twitch-oauth"></code>
+  </div>
+
+  <script>
+    var oauthHash = location.hash.substr(1);
+    var accessToken = oauthHash.substr(oauthHash.indexOf('access_token=')).split('&')[0].split('=')[1];
+
+    if (accessToken) {
+      $('.default').hide();
+      $('.twitch-oauth').text('oauth:' + accessToken);
+      window.location.hash = '';
+    }
+    else $('.authenticated').hide();
+  </script>
 </body>
 </html>
