@@ -27,17 +27,25 @@ a {
   color: #6441A4;
 }
 
-.panel-wrapper h2, .panel-wrapper h3 {
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel h2, .panel h3 {
   font-weight: 300;
 }
 
-.panel-wrapper h2 {
+.panel h2 {
   margin-bottom: 6px;
   font-size: 22px;
   color: #2C2541;
 }
 
-.panel-wrapper h3 {
+.panel h3 {
   margin-bottom: 30px;
   font-size: 14px;
   color: #898395;
