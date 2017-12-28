@@ -79,3 +79,10 @@ a {
 .btn--hollow:hover {
   background: #EEE9F6;
 }
+
+code {
+  font-size: 16px;
+  background: #FAF9FA;
+  border-radius: 2px;
+  padding: 5px;
+}
