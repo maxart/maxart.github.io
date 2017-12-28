@@ -19,6 +19,12 @@ body {
   flex-direction: column;
   background: #FAF9FA;
   transition: background .15s linear;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #6441A4;
 }
 
 .panel-wrapper h2, .panel-wrapper h3 {
