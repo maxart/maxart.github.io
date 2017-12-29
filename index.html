@@ -37,7 +37,7 @@
 
     if (accessToken) {
       $('.default').hide();
-      $('.twitch-oauth').text('oauth:' + accessToken);
+      $('.twitch-oauth').text(accessToken);
       window.location.hash = '';
     }
     else $('.authenticated').hide();
